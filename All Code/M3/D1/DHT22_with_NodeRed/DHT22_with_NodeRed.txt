@@ -1,0 +1,73 @@
+[
+    {
+        "id": "e5ce5cf25e39ee84",
+        "type": "tab",
+        "label": "Flow4",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "d5acc48f9d5beda0",
+        "type": "inject",
+        "z": "e5ce5cf25e39ee84",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 280,
+        "y": 240,
+        "wires": [
+            [
+                "b0f9ba27467da8ba"
+            ]
+        ]
+    },
+    {
+        "id": "637ac72364898396",
+        "type": "debug",
+        "z": "e5ce5cf25e39ee84",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "b0f9ba27467da8ba",
+        "type": "rpi-dht22",
+        "z": "e5ce5cf25e39ee84",
+        "name": "",
+        "topic": "rpi-dht22",
+        "dht": 22,
+        "pintype": 1,
+        "pin": "40",
+        "x": 500,
+        "y": 240,
+        "wires": [
+            [
+                "637ac72364898396"
+            ]
+        ]
+    }
+]

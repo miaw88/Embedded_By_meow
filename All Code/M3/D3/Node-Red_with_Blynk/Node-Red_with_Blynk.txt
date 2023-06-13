@@ -1,0 +1,228 @@
+[
+    {
+        "id": "9a105b4d0fde208f",
+        "type": "tab",
+        "label": "Flow 8",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "32079b6e2c4553e7",
+        "type": "rpi-gpio out",
+        "z": "9a105b4d0fde208f",
+        "name": "",
+        "pin": "18",
+        "set": "",
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 600,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "c291383849304504",
+        "type": "rpi-gpio out",
+        "z": "9a105b4d0fde208f",
+        "name": "",
+        "pin": "23",
+        "set": "",
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 600,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "0a70d5a961fb5398",
+        "type": "rpi-gpio out",
+        "z": "9a105b4d0fde208f",
+        "name": "",
+        "pin": "24",
+        "set": "",
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 600,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "6e09787c25210d9d",
+        "type": "rpi-gpio out",
+        "z": "9a105b4d0fde208f",
+        "name": "",
+        "pin": "25",
+        "set": "",
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 600,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "f77fffba19e32589",
+        "type": "debug",
+        "z": "9a105b4d0fde208f",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 710,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "4802468751ae1a7e",
+        "type": "function",
+        "z": "9a105b4d0fde208f",
+        "name": "Tempp",
+        "func": "msg.payload = Math.round( Math.random() *100)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 460,
+        "wires": [
+            [
+                "f77fffba19e32589",
+                "f8087aeff21622cc"
+            ]
+        ]
+    },
+    {
+        "id": "3209e043d969f9a6",
+        "type": "inject",
+        "z": "9a105b4d0fde208f",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 380,
+        "y": 460,
+        "wires": [
+            [
+                "4802468751ae1a7e"
+            ]
+        ]
+    },
+    {
+        "id": "ace9d6e91ea58217",
+        "type": "blynk-iot-in-write",
+        "z": "9a105b4d0fde208f",
+        "name": "",
+        "pin": "1",
+        "pin_all": 0,
+        "client": "5220722da43683e5",
+        "x": 390,
+        "y": 160,
+        "wires": [
+            [
+                "32079b6e2c4553e7"
+            ]
+        ]
+    },
+    {
+        "id": "dedafef0ad11a7c0",
+        "type": "blynk-iot-in-write",
+        "z": "9a105b4d0fde208f",
+        "name": "",
+        "pin": "2",
+        "pin_all": 0,
+        "client": "5220722da43683e5",
+        "x": 390,
+        "y": 220,
+        "wires": [
+            [
+                "c291383849304504"
+            ]
+        ]
+    },
+    {
+        "id": "c79c126825c3e1fa",
+        "type": "blynk-iot-in-write",
+        "z": "9a105b4d0fde208f",
+        "name": "",
+        "pin": "3",
+        "pin_all": 0,
+        "client": "5220722da43683e5",
+        "x": 390,
+        "y": 280,
+        "wires": [
+            [
+                "0a70d5a961fb5398"
+            ]
+        ]
+    },
+    {
+        "id": "6d473dbe5528b0a5",
+        "type": "blynk-iot-in-write",
+        "z": "9a105b4d0fde208f",
+        "name": "",
+        "pin": "4",
+        "pin_all": 0,
+        "client": "5220722da43683e5",
+        "x": 390,
+        "y": 340,
+        "wires": [
+            [
+                "6e09787c25210d9d"
+            ]
+        ]
+    },
+    {
+        "id": "f8087aeff21622cc",
+        "type": "blynk-iot-out-write",
+        "z": "9a105b4d0fde208f",
+        "name": "",
+        "pin": "5",
+        "pinmode": 0,
+        "client": "5220722da43683e5",
+        "x": 760,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "5220722da43683e5",
+        "type": "blynk-iot-client",
+        "name": "",
+        "path": "blynk.cloud",
+        "key": "pjC2F6yu5HNvWcMPnPLOpWf9IfjG-MRZ",
+        "tmpl": "TMPL6ZQQtVQPW",
+        "dbg_all": false,
+        "dbg_log": false,
+        "dbg_prop": false,
+        "dbg_sync": false,
+        "dbg_low": false,
+        "dbg_pins": "",
+        "multi_cmd": false,
+        "enabled": true
+    }
+]

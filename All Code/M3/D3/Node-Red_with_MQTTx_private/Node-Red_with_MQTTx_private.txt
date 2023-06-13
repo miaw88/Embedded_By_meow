@@ -1,0 +1,367 @@
+Node-RED Code
+[
+    {
+        "id": "944d911ccc3a8047",
+        "type": "tab",
+        "label": "Flow 14",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "e01a2b685288a34c",
+        "type": "mqtt in",
+        "z": "944d911ccc3a8047",
+        "name": "",
+        "topic": "Flow14",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "bc2d95c41d54be10",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 140,
+        "wires": [
+            [
+                "be8219696a6e0893",
+                "b0ca68f6060e7522",
+                "0f7c27b34f43efc5",
+                "6ecb9ec872745efa"
+            ]
+        ]
+    },
+    {
+        "id": "be8219696a6e0893",
+        "type": "change",
+        "z": "944d911ccc3a8047",
+        "name": "LED1",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "OFF1",
+                "fromt": "str",
+                "to": "false",
+                "tot": "bool"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "ON1",
+                "fromt": "str",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 310,
+        "y": 140,
+        "wires": [
+            [
+                "4188c4eeb002787d"
+            ]
+        ]
+    },
+    {
+        "id": "4188c4eeb002787d",
+        "type": "rpi-gpio out",
+        "z": "944d911ccc3a8047",
+        "name": "",
+        "pin": "18",
+        "set": "",
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 540,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "b0ca68f6060e7522",
+        "type": "change",
+        "z": "944d911ccc3a8047",
+        "name": "LED2",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "OFF2",
+                "fromt": "str",
+                "to": "false",
+                "tot": "bool"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "ON2",
+                "fromt": "str",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 310,
+        "y": 200,
+        "wires": [
+            [
+                "280475180b97d702"
+            ]
+        ]
+    },
+    {
+        "id": "0f7c27b34f43efc5",
+        "type": "change",
+        "z": "944d911ccc3a8047",
+        "name": "LED3",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "OFF3",
+                "fromt": "str",
+                "to": "false",
+                "tot": "bool"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "ON3",
+                "fromt": "str",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 310,
+        "y": 260,
+        "wires": [
+            [
+                "529130510fcb64d4"
+            ]
+        ]
+    },
+    {
+        "id": "6ecb9ec872745efa",
+        "type": "change",
+        "z": "944d911ccc3a8047",
+        "name": "LED4",
+        "rules": [
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "OFF4",
+                "fromt": "str",
+                "to": "false",
+                "tot": "bool"
+            },
+            {
+                "t": "change",
+                "p": "payload",
+                "pt": "msg",
+                "from": "ON4",
+                "fromt": "str",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 310,
+        "y": 320,
+        "wires": [
+            [
+                "600326651a3fa1e5"
+            ]
+        ]
+    },
+    {
+        "id": "280475180b97d702",
+        "type": "rpi-gpio out",
+        "z": "944d911ccc3a8047",
+        "name": "",
+        "pin": "23",
+        "set": "",
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 540,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "529130510fcb64d4",
+        "type": "rpi-gpio out",
+        "z": "944d911ccc3a8047",
+        "name": "",
+        "pin": "24",
+        "set": "",
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 540,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "600326651a3fa1e5",
+        "type": "rpi-gpio out",
+        "z": "944d911ccc3a8047",
+        "name": "",
+        "pin": "25",
+        "set": "",
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 540,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "885e3b79412692e4",
+        "type": "inject",
+        "z": "944d911ccc3a8047",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 460,
+        "wires": [
+            [
+                "d7885f16122ee0de"
+            ]
+        ]
+    },
+    {
+        "id": "d7885f16122ee0de",
+        "type": "function",
+        "z": "944d911ccc3a8047",
+        "name": "Tempp",
+        "func": "msg.payload = \"Random Temperature = \"+Math.round( Math.random() *100)\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 310,
+        "y": 460,
+        "wires": [
+            [
+                "d9c9eb37707da3bc"
+            ]
+        ]
+    },
+    {
+        "id": "d9c9eb37707da3bc",
+        "type": "mqtt out",
+        "z": "944d911ccc3a8047",
+        "name": "",
+        "topic": "Flow14",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "2134966334678988",
+        "x": 520,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "bc2d95c41d54be10",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "test.mosquitto.org",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "2134966334678988",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "test.mosquitto.org",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    }
+]

@@ -1,0 +1,98 @@
+[
+    {
+        "id": "27ca0104b4dc9516",
+        "type": "tab",
+        "label": "Flow6",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "1979c14ec2ad4523",
+        "type": "http request",
+        "z": "27ca0104b4dc9516",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://notify-api.line.me/api/notify",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 630,
+        "y": 340,
+        "wires": [
+            [
+                "fae20fc5b1825096"
+            ]
+        ]
+    },
+    {
+        "id": "fae20fc5b1825096",
+        "type": "debug",
+        "z": "27ca0104b4dc9516",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 810,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "81be9c63fe920de1",
+        "type": "function",
+        "z": "27ca0104b4dc9516",
+        "name": "Message",
+        "func": "msg.token = 'dnWPlDhRp37SeT8OUHoIPstSP18Y061Wd0AAQtaidw7';\nmsg.message = 'B6310646 supanan';\nmsg.stickerPackageId = 11539;\nmsg.stickerId = 52114112;\n\nmsg.headers = {\n 'content-type':'application/x-www-form-urlencoded',\n 'Authorization':'Bearer ' + msg.token\n};\nmsg.payload = {\n 'message': msg.message,\n 'stickerPackageId':msg.stickerPackageId,\n 'stickerId':msg.stickerId\n};\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 460,
+        "y": 340,
+        "wires": [
+            [
+                "1979c14ec2ad4523"
+            ]
+        ]
+    },
+    {
+        "id": "e3b7ac760fabfe77",
+        "type": "inject",
+        "z": "27ca0104b4dc9516",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 280,
+        "y": 340,
+        "wires": [
+            [
+                "81be9c63fe920de1"
+            ]
+        ]
+    }
+]

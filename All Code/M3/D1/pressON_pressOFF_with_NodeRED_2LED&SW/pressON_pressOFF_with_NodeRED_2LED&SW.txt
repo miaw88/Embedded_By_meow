@@ -1,0 +1,114 @@
+[
+    {
+        "id": "334498021cc1c0cc",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "bbb2209cac31c165",
+        "type": "rpi-gpio in",
+        "z": "334498021cc1c0cc",
+        "name": "",
+        "pin": "16",
+        "intype": "up",
+        "debounce": "25",
+        "read": false,
+        "bcm": true,
+        "x": 240,
+        "y": 60,
+        "wires": [
+            [
+                "55a5b130cec63d09"
+            ]
+        ]
+    },
+    {
+        "id": "4c0f2b4176b290a3",
+        "type": "rpi-gpio in",
+        "z": "334498021cc1c0cc",
+        "name": "",
+        "pin": "21",
+        "intype": "up",
+        "debounce": "25",
+        "read": false,
+        "bcm": true,
+        "x": 240,
+        "y": 180,
+        "wires": [
+            [
+                "5609705f10f8752b"
+            ]
+        ]
+    },
+    {
+        "id": "c386d8ec653ae7a1",
+        "type": "rpi-gpio out",
+        "z": "334498021cc1c0cc",
+        "name": "",
+        "pin": "12",
+        "set": "",
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 740,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "e1c90ecfcbc046bd",
+        "type": "rpi-gpio out",
+        "z": "334498021cc1c0cc",
+        "name": "",
+        "pin": "20",
+        "set": "",
+        "level": "0",
+        "freq": "",
+        "out": "out",
+        "bcm": true,
+        "x": 740,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "55a5b130cec63d09",
+        "type": "function",
+        "z": "334498021cc1c0cc",
+        "name": "function 3",
+        "func": "context.state = context.state | 0;\ncontext.state = !context.state\nvar myContext = context.state;\n// initialise the counter to 0 if it doesn’t exist already\nvar count = context.get('count') || 0;\ncount += 1;\n// store the value back\ncontext.set('count', count);\n// make it part of the outgoing msg object\nmsg.count = count;\n//define function isOdd 1 === isOdd\nfunction isOdd(num) { return num % 2; }\n/if myContext is true and count is odd send 1,else send 0/\nif (myContext === true && isOdd((count + 1) / 2) === 1) {\n    msg.payload = 1;\n    return msg;\n} else if (myContext === true && isOdd((count + 1) / 2) === 0) {\n    msg.payload = 0;\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 60,
+        "wires": [
+            [
+                "c386d8ec653ae7a1"
+            ]
+        ]
+    },
+    {
+        "id": "5609705f10f8752b",
+        "type": "function",
+        "z": "334498021cc1c0cc",
+        "name": "function 4",
+        "func": "context.state = context.state | 0;\ncontext.state = !context.state\nvar myContext = context.state;\n// initialise the counter to 0 if it doesn’t exist already\nvar count = context.get('count') || 0;\ncount += 1;\n// store the value back\ncontext.set('count', count);\n// make it part of the outgoing msg object\nmsg.count = count;\n//define function isOdd 1 === isOdd\nfunction isOdd(num) { return num % 2; }\n/if myContext is true and count is odd send 1,else send 0/\nif (myContext === true && isOdd((count + 1) / 2) === 1) {\n    msg.payload = 1;\n    return msg;\n} else if (myContext === true && isOdd((count + 1) / 2) === 0) {\n    msg.payload = 0;\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 180,
+        "wires": [
+            [
+                "e1c90ecfcbc046bd"
+            ]
+        ]
+    }
+]

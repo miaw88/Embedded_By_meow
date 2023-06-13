@@ -1,0 +1,15 @@
+msg.token = 'dnWPlDhRp37SeT8OUHoIPstSP18Y061Wd0AAQtaidw7';
+msg.message = 'B6310646 supanan';
+msg.stickerPackageId = 11539;
+msg.stickerId = 52114112;
+
+msg.headers = {
+ 'content-type':'application/x-www-form-urlencoded',
+ 'Authorization':'Bearer ' + msg.token
+};
+msg.payload = {
+ 'message': msg.message,
+ 'stickerPackageId':msg.stickerPackageId,
+ 'stickerId':msg.stickerId
+};
+return msg;

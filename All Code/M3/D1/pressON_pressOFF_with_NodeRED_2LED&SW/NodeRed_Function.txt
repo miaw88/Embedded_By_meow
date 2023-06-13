@@ -1,0 +1,20 @@
+context.state = context.state | 0;
+context.state = !context.state
+var myContext = context.state;
+// initialise the counter to 0 if it doesn’t exist already
+var count = context.get('count') || 0;
+count += 1;
+// store the value back
+context.set('count', count);
+// make it part of the outgoing msg object
+msg.count = count;
+//define function isOdd 1 === isOdd
+function isOdd(num) { return num % 2; }
+/if myContext is true and count is odd send 1,else send 0/
+if (myContext === true && isOdd((count + 1) / 2) === 1) {
+    msg.payload = 1;
+    return msg;
+} else if (myContext === true && isOdd((count + 1) / 2) === 0) {
+    msg.payload = 0;
+    return msg;
+}

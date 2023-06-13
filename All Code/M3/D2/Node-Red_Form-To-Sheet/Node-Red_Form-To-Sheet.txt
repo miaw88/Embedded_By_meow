@@ -1,0 +1,100 @@
+[
+    {
+        "id": "9abe0f58e7be3cd6",
+        "type": "tab",
+        "label": "Flow7",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "1d8fcdc0dca13da7",
+        "type": "inject",
+        "z": "9abe0f58e7be3cd6",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 280,
+        "y": 320,
+        "wires": [
+            [
+                "29967af7bda0c65c"
+            ]
+        ]
+    },
+    {
+        "id": "dbbe8142e2563c8d",
+        "type": "debug",
+        "z": "9abe0f58e7be3cd6",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 790,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "29967af7bda0c65c",
+        "type": "function",
+        "z": "9abe0f58e7be3cd6",
+        "name": "",
+        "func": "var data = {}\ndata.Tempp = parseFloat((Math.random()*20)+20).toFixed(2);\ndata.Humid =parseFloat((Math.random()*20)+40).toFixed(2);\ndata.Light = parseFloat((Math.random()*20)+60).toFixed(2);\ndata.RSSI = parseFloat((Math.random()*20)+80).toFixed(2);\n\nmsg.payload = data\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 320,
+        "wires": [
+            [
+                "26fe2f978a5bda14"
+            ]
+        ]
+    },
+    {
+        "id": "26fe2f978a5bda14",
+        "type": "http request",
+        "z": "9abe0f58e7be3cd6",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://docs.google.com/forms/d/e/1FAIpQLScW8lMUYy9KKo3kipwwpS1kX9HogdE9X8SIhh7-2uUjsV-voA/formResponse?usp=pp_url&entry.440702937={{payload.Tempp}}&entry.454404893={{payload.Humid}}&entry.311246336={{payload.Light}}&entry.320505924={{payload.RSSI}}",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "credentials": {},
+        "x": 610,
+        "y": 320,
+        "wires": [
+            [
+                "dbbe8142e2563c8d"
+            ]
+        ]
+    }
+]

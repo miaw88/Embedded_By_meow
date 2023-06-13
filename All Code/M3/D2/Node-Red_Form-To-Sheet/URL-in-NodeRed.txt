@@ -1,0 +1,1 @@
+https://docs.google.com/forms/d/e/1FAIpQLScW8lMUYy9KKo3kipwwpS1kX9HogdE9X8SIhh7-2uUjsV-voA/formResponse?usp=pp_url&entry.440702937={{payload.Tempp}}&entry.454404893={{payload.Humid}}&entry.311246336={{payload.Light}}&entry.320505924={{payload.RSSI}}
